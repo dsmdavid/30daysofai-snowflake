@@ -1,0 +1,4 @@
+CREATE STREAMLIT IF NOT EXISTS dsmdavid_30days_day_01
+  FROM @THIRTY_DAYS.COMMON.dsmdavid_git_30days/branches/main/;
+  MAIN_FILE = 'app/day01.py'
+  QUERY_WAREHOUSE = COMPUTE_WH;
