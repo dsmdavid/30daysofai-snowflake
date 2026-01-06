@@ -24,3 +24,6 @@ CREATE GIT REPOSITORY IF NOT EXISTS dsmdavid_github_30days
   ;
 
 ALTER GIT REPOSITORY IF EXISTS dsmdavid_github_30days FETCH;
+
+-- this is only needed if the region is not AWS_US
+ALTER ACCOUNT SET CORTEX_ENABLED_CROSS_REGION = 'AWS_US';
