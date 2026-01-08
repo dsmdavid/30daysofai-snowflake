@@ -28,4 +28,5 @@ CREATE STREAMLIT IF NOT EXISTS IDENTIFIER($streamlit_identifier)
   QUERY_WAREHOUSE = COMPUTE_WH
 ;
 
-ALTER STREAMLIT IDENTIFIER($streamlit_identifier)  ADD LIVE VERSION FROM LAST;
+-- this does not support the identifier
+-- ALTER STREAMLIT IDENTIFIER($streamlit_identifier)  ADD LIVE VERSION FROM LAST;
