@@ -1,5 +1,8 @@
 ALTER GIT REPOSITORY IF EXISTS dsmdavid_github_30days FETCH;
 SET challenge_day = '06';
+SET streamlit_identifier = 'dsmdavid_30days_day_' || $challenge_day;
+SET file_id = 'day' || $challenge_day || '.py';
+
 /* the below does not work in trial accounts as external access is not supported 
 CREATE OR REPLACE NETWORK RULE dsmdavid_30days_day_05
   TYPE = HOST_PORT
@@ -19,10 +22,10 @@ CREATE STREAMLIT IF NOT EXISTS dsmdavid_30days_day_05
   
 -- end of comment to use the below instead of the above */
 
-CREATE STREAMLIT IF NOT EXISTS IDENTIFIER('dsmdavid_30days_day_' || $challenge_day)
+CREATE STREAMLIT IF NOT EXISTS IDENTIFIER($streamlit_identifier)
   FROM @THIRTY_DAYS.COMMON.DSMDAVID_GITHUB_30DAYS/branches/main/app
-  MAIN_FILE = 'day' || $challenge_day || '.py'
+  MAIN_FILE = $file_id
   QUERY_WAREHOUSE = COMPUTE_WH
 ;
 
-ALTER STREAMLIT IDENTIFIER('dsmdavid_30days_day_' || $challenge_day)  ADD LIVE VERSION FROM LAST;
+ALTER STREAMLIT IDENTIFIER($streamlit_identifier)  ADD LIVE VERSION FROM LAST;
