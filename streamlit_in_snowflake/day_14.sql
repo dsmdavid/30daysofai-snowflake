@@ -2,6 +2,7 @@ ALTER GIT REPOSITORY IF EXISTS dsmdavid_github_30days FETCH;
 SET challenge_day = '14';
 SET streamlit_identifier = 'dsmdavid_30days_day_' || $challenge_day;
 SET file_id = 'day' || $challenge_day || '.py';
+SET sql_stmnt = 'ALTER STREAMLIT ' || $streamlit_identifier || ' ADD LIVE VERSION FROM LAST';
 
 /* the below does not work in trial accounts as external access is not supported 
 CREATE OR REPLACE NETWORK RULE dsmdavid_30days_day_05
@@ -30,4 +31,5 @@ CREATE STREAMLIT IF NOT EXISTS IDENTIFIER($streamlit_identifier)
 
 -- this does not support the identifier
 -- EXECUTE IMMEDIATE 
-ALTER STREAMLIT dsmdavid_30days_day_14  ADD LIVE VERSION FROM LAST;
+-- ALTER STREAMLIT dsmdavid_30days_day_14  ADD LIVE VERSION FROM LAST;
+EXECUTE IMMEDIATE $sql_stmnt;
