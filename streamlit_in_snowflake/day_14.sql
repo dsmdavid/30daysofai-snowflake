@@ -23,7 +23,7 @@ CREATE STREAMLIT IF NOT EXISTS dsmdavid_30days_day_05
   
 -- end of comment to use the below instead of the above */
 
-CREATE STREAMLIT IF NOT EXISTS IDENTIFIER($streamlit_identifier)
+CREATE OR REPLACE STREAMLIT IDENTIFIER($streamlit_identifier)
   FROM @THIRTY_DAYS.COMMON.DSMDAVID_GITHUB_30DAYS/branches/main/app
   MAIN_FILE = $file_id
   QUERY_WAREHOUSE = COMPUTE_WH

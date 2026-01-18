@@ -144,4 +144,4 @@ Respond to the user's latest message."""
             st.info(":material/lightbulb: **Tip:** This might be a temporary issue. Try again in a moment, or rephrase your question.")
 
 st.divider()
-st.caption("Day 14: Adding Avatars and Error Handling | 30 Days of AI")
+st.caption("Day 14: Adding Avatars and Error Handling | 30 Days of AI | Live version added with execute immediate")
