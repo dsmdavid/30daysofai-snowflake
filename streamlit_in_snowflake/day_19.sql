@@ -1,5 +1,5 @@
 ALTER GIT REPOSITORY IF EXISTS dsmdavid_github_30days FETCH;
-SET challenge_day = '18';
+SET challenge_day = '19';
 SET streamlit_identifier = 'dsmdavid_30days_day_' || $challenge_day;
 SET file_id = 'day' || $challenge_day || '.py';
 SET sql_stmnt = 'ALTER STREAMLIT ' || $streamlit_identifier || ' ADD LIVE VERSION FROM LAST';
